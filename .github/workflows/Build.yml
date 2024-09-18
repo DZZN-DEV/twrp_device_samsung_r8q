@@ -1,4 +1,4 @@
-name: Make S20 FE (Snapdragon) Recovery
+name: Make S20 FE 5g (Snapdragon) Recovery
 
 on:
   workflow_dispatch:
