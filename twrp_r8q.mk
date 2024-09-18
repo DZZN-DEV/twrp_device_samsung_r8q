@@ -5,15 +5,23 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Release name
+PRODUCT_RELEASE_NAME := r8q
 
-# Inherit some common Omni stuff.
-$(call inherit-product, vendor/omni/config/common.mk)
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Inherit from r8q device
+# Inherit some common TWRP stuff.
+$(call inherit-product, vendor/twrp/config/common.mk)
+
+# Inherit device configuration
 $(call inherit-product, device/samsung/r8q/device.mk)
+
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
+PRODUCT_COPY_FILES += $(call find-copy-subdir-files,*,device/samsung/r8q/recovery/root,recovery/root)
 
 PRODUCT_DEVICE := r8q
 PRODUCT_NAME := omni_r8q
