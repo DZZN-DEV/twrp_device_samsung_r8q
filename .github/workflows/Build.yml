@@ -18,7 +18,7 @@ on:
       DEVICE_URL:
         description: 'DEVICE_URL'
         required: true
-        default: 'https://github.com/bm0x/twrp_device_samsung_r8q'
+        default: 'https://github.com/DZZN-DEV/twrp_device_samsung_r8q'
       DEVICE_BRANCH:
         description: 'DEVICE_BRANCH'
         required: true
@@ -33,7 +33,7 @@ on:
         default: 'r8q'
 
 env:
-  TZ: Asia/Shanghai
+  TZ: Europe/Berlin
 
 jobs:
   build:
@@ -83,8 +83,8 @@ jobs:
         mkdir workspace
         cd workspace
         echo "::set-output name=pwd::$(pwd)"
-        git config --global user.name "Hikaru's Action-Build-Bot"
-        git config --global user.email "Android@teio.tk"
+        git config --global user.name "DZZN-DEV"
+        git config --global user.email "davenplay@gmail.com"
         repo init --depth=1 -u ${{ github.event.inputs.LIBRARY_URL }} -b ${{ github.event.inputs.LIBRARY_BRANCH }}
       id: pwd
           
